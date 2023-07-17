@@ -11,15 +11,24 @@
       else{
         hours = "" + hours
     };
-      minutes = (minutes < 10 ? "0" : "") + minutes;
-      seconds = (seconds < 10 ? "0" : "") + seconds;
-
-      // Display the time in the "clock" div element
+      
+    if(minutes <10){
+      minutes = "0" + minutes
+    }
+    else{
+      minutes = "" + minutes
+    }
+    if(seconds <10){
+      seconds = "0" + seconds
+    }
+    else{
+      seconds = "" + seconds
+    }
       
       var clockspan = document.getElementById("clockspan")
       clockspan.textContent = hours + ":" + minutes + ":" + seconds;
     }
 
-    // Call the displayTime function every second
+   
     setInterval(displayTime, 1000);
 
