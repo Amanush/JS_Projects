@@ -1,0 +1,10 @@
+#clock {
+    font-size: 48px;
+    text-align: center;
+    margin: 10vh auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:rgb(128, 140, 175);
+    flex-flow: column wrap;
+  }
