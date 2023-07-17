@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    flex-flow: column wrap;
+}
+button{
+    height: 35px;
+    width: 250px;
+    margin-top: 50px;
+    border: 0;
+    box-shadow: inset;
+}
