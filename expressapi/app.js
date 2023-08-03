@@ -6,13 +6,13 @@ const fs = require('fs')
 app.use(express.json());
 
 // Middleware to log requests to the console
-app.use((req, res, next) => {
+app.use(function(req, res, next) {
   console.log(`Received ${req.method} request at ${req.url}`);
   next();
 });
 
 // Following code will server the response JSON data
-app.get('/api/data', (req, res) => {
+app.get('/api/data', function(req, res)  {
   const jsonData = {
     message: 'Hello, this is the JSON data!',
     timestamp: new Date().toISOString(),
@@ -21,7 +21,7 @@ app.get('/api/data', (req, res) => {
 });
 
 // Following code will send post request 
-app.post('/api/echo', (req, res) => {
+app.post('/api/echo',function (req, res)  {
   if (!req.body || Object.keys(req.body).length === 0) {
     return res.status(400).json({ error: 'Request body is empty.' });
   }
@@ -38,7 +38,7 @@ app.post('/api/save', (req, res) => {
 
   // Save the data to a JSON file
   const dataToSave = JSON.stringify(req.body, null, 2);
-  fs.writeFile('savedData.json', dataToSave, (err) => {
+  fs.writeFile('savedData.json', dataToSave, function (err)  {
     if (err) {
       console.error('Error saving data:', err);
       return res.status(500).json({ error: 'Error saving data.' });
